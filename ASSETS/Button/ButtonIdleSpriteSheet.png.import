@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bem7g7qy2l8vp"
-path="res://.godot/imported/Icon6ThermalVent.png-e75767f9a80f38e6f1c05312eaf369e7.ctex"
+uid="uid://ccxocy30efitl"
+path="res://.godot/imported/ButtonIdleSpriteSheet.png-55c4dd8be36dca6a0ece643e33ab0ca3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Icons/Icon6ThermalVent.png"
-dest_files=["res://.godot/imported/Icon6ThermalVent.png-e75767f9a80f38e6f1c05312eaf369e7.ctex"]
+source_file="res://ASSETS/Button/ButtonIdleSpriteSheet.png"
+dest_files=["res://.godot/imported/ButtonIdleSpriteSheet.png-55c4dd8be36dca6a0ece643e33ab0ca3.ctex"]
 
 [params]
 

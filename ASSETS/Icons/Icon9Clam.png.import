@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0ttovyxh2fm6"
-path="res://.godot/imported/Icon9Clam.png-9ddff09f298d0df9b35e189c1086cca2.ctex"
+path="res://.godot/imported/Icon9Clam.png-7df426ea0cea631c9408e562d7975b5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Icon9Clam.png"
-dest_files=["res://.godot/imported/Icon9Clam.png-9ddff09f298d0df9b35e189c1086cca2.ctex"]
+source_file="res://ASSETS/Icons/Icon9Clam.png"
+dest_files=["res://.godot/imported/Icon9Clam.png-7df426ea0cea631c9408e562d7975b5d.ctex"]
 
 [params]
 
