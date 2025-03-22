@@ -11,7 +11,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(icons.global_position)
 	if stopping and icons.autoscroll.y > 0:
 		# Offset the icons based on the position before updating the autoscroll (WORKAROUND)
 		# There is a known "issue" with the parallax resetting when autoscroll is updated,
@@ -19,7 +18,15 @@ func _process(delta: float) -> void:
 		#   https://github.com/godotengine/godot/issues/97605
 		var cur_position = icons.position
 		
-		icons.autoscroll.y = clamp(icons.autoscroll.y - 2, 0, MAX_SPEED) 
+		if icons.autoscroll.y < 80:
+			print(fmod(icons.position.y, 80), icons.position.y)
+			if abs(fmod(icons.position.y, 80)) > 1:
+				icons.autoscroll.y = clamp(icons.autoscroll.y - 2, abs(fmod(icons.position.y, 80)), MAX_SPEED)
+			else:
+				icons.autoscroll.y = 0
+				icons.position.y -= fmod(icons.position.y, 80)
+		else:
+			icons.autoscroll.y = clamp(icons.autoscroll.y - 2, 0, MAX_SPEED)
 		$Background/Icons.scroll_offset.y = cur_position.y
 
 func stop():
