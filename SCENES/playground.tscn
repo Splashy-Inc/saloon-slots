@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ss8rdvj5xugi"]
+
+[node name="Playground" type="Node"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BackgroundTexture" type="TextureRect" parent="Background"]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="TopRow" type="Node2D" parent="."]
+
+[node name="ScoreBox" type="Node2D" parent="TopRow"]
+
+[node name="MiddleRow" type="Node2D" parent="."]
+
+[node name="Spinners" type="Node2D" parent="MiddleRow"]
+
+[node name="Lever" type="Node2D" parent="MiddleRow"]
+
+[node name="BottomRow" type="Node2D" parent="."]
+
+[node name="Buttons" type="Node2D" parent="BottomRow"]
