@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxq26bgi6tp3y"]
+[gd_scene load_steps=14 format=3 uid="uid://cxq26bgi6tp3y"]
 
 [ext_resource type="Texture2D" uid="uid://ccxocy30efitl" path="res://ASSETS/Button/ButtonIdleSpriteSheet.png" id="1_chiu8"]
 [ext_resource type="Script" path="res://SCRIPTS/stop_button.gd" id="1_xqshc"]
 [ext_resource type="Texture2D" uid="uid://bdu8i6i6ic3pm" path="res://ASSETS/Button/Button.png" id="3_ytcxn"]
+[ext_resource type="Texture2D" uid="uid://cqrn5hdwbuk70" path="res://ASSETS/Button/ButtonPressedSpriteSheet.png" id="4_0hsvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sein"]
 atlas = ExtResource("1_chiu8")
@@ -19,6 +20,22 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdjh0"]
 atlas = ExtResource("1_chiu8")
 region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjp71"]
+atlas = ExtResource("4_0hsvy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jxcx"]
+atlas = ExtResource("4_0hsvy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blnyj"]
+atlas = ExtResource("4_0hsvy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_887p6"]
+atlas = ExtResource("4_0hsvy")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l60gf"]
 animations = [{
@@ -44,19 +61,31 @@ animations = [{
 "texture": ExtResource("3_ytcxn")
 }],
 "loop": true,
-"name": &"pressed",
-"speed": 5.0
+"name": &"idle",
+"speed": 4.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"pressing",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjp71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jxcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blnyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_887p6")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 6.0
 }]
 
 [node name="StopButton" type="Node2D"]
 script = ExtResource("1_xqshc")
 
-[node name="TextureButton" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,8 +101,7 @@ grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l60gf")
-animation = &"pressed"
+animation = &"idle"
 autoplay = "default"
-frame_progress = 0.525925
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_texture_button_pressed"]

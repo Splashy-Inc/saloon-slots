@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		var cur_position = icons.position
 		
 		if icons.autoscroll.y < 80:
-			print(fmod(icons.position.y, 80), icons.position.y)
 			if abs(fmod(icons.position.y, 80)) > 1:
 				icons.autoscroll.y = clamp(icons.autoscroll.y - 2, abs(fmod(icons.position.y, 80)), MAX_SPEED)
 			else:
