@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Spinner
+
 const MAX_SPEED = 360*2
 var stopping := false
 @onready var icons: Parallax2D = $Background/Icons
@@ -7,7 +9,7 @@ var stopping := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	icons.autoscroll.y = MAX_SPEED
-	stop()
+	#stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
