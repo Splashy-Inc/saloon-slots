@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clv8jyn6oi7ck"
-path="res://.godot/imported/Icon1CowboyHat.png-bc1cf4d44f2a15335eb53e45a9f51461.ctex"
+path="res://.godot/imported/Icon1CowboyHat.png-13e1f2b76e8fa5c0ddcc16366d601824.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Icon1CowboyHat.png"
-dest_files=["res://.godot/imported/Icon1CowboyHat.png-bc1cf4d44f2a15335eb53e45a9f51461.ctex"]
+source_file="res://ASSETS/Icons/Icon1CowboyHat.png"
+dest_files=["res://.godot/imported/Icon1CowboyHat.png-13e1f2b76e8fa5c0ddcc16366d601824.ctex"]
 
 [params]
 

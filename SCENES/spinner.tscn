@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://blqp4w42gjwru"]
+
+[ext_resource type="Script" path="res://SCRIPTS/spinner.gd" id="1_bifv3"]
+[ext_resource type="PackedScene" uid="uid://couw6agdsbohf" path="res://SCENES/icon.tscn" id="2_dhysi"]
+
+[sub_resource type="Gradient" id="Gradient_gbnso"]
+offsets = PackedFloat32Array(0, 0.512987, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uaemb"]
+gradient = SubResource("Gradient_gbnso")
+width = 128
+height = 240
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[node name="Spinner" type="Node2D"]
+script = ExtResource("1_bifv3")
+
+[node name="Background" type="Sprite2D" parent="."]
+clip_children = 2
+texture = SubResource("GradientTexture2D_uaemb")
+
+[node name="Icons" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(0, 800)
+autoscroll = Vector2(0, 100)
+repeat_times = 2
+
+[node name="IconSlot1" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, -160)
+
+[node name="Icon" parent="Background/Icons/IconSlot1" instance=ExtResource("2_dhysi")]
+
+[node name="IconSlot2" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, -80)
+
+[node name="Icon" parent="Background/Icons/IconSlot2" instance=ExtResource("2_dhysi")]
+type = 1
+
+[node name="IconSlot3" type="Node2D" parent="Background/Icons"]
+
+[node name="Icon" parent="Background/Icons/IconSlot3" instance=ExtResource("2_dhysi")]
+type = 2
+
+[node name="IconSlot4" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 80)
+
+[node name="Icon" parent="Background/Icons/IconSlot4" instance=ExtResource("2_dhysi")]
+type = 3
+
+[node name="IconSlot5" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 160)
+
+[node name="Icon" parent="Background/Icons/IconSlot5" instance=ExtResource("2_dhysi")]
+type = 4
+
+[node name="IconSlot6" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 240)
+
+[node name="Icon" parent="Background/Icons/IconSlot6" instance=ExtResource("2_dhysi")]
+type = 5
+
+[node name="IconSlot7" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 320)
+
+[node name="Icon" parent="Background/Icons/IconSlot7" instance=ExtResource("2_dhysi")]
+type = 6
+
+[node name="IconSlot8" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 400)
+
+[node name="Icon" parent="Background/Icons/IconSlot8" instance=ExtResource("2_dhysi")]
+type = 7
+
+[node name="IconSlot9" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 480)
+
+[node name="Icon" parent="Background/Icons/IconSlot9" instance=ExtResource("2_dhysi")]
+type = 8
+
+[node name="IconSlot10" type="Node2D" parent="Background/Icons"]
+position = Vector2(0, 560)
+
+[node name="Icon" parent="Background/Icons/IconSlot10" instance=ExtResource("2_dhysi")]
+type = 9
