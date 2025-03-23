@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ss8rdvj5xugi"]
+[gd_scene load_steps=7 format=3 uid="uid://ss8rdvj5xugi"]
 
 [ext_resource type="Script" path="res://SCRIPTS/playground.gd" id="1_eiq57"]
 [ext_resource type="PackedScene" uid="uid://blqp4w42gjwru" path="res://SCENES/spinner.tscn" id="1_p8cck"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cl3soqbpi3kfl" path="res://SCENES/lever.tscn" id="3_ivvf6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p21bk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdupu"]
 
 [node name="Playground" type="Node"]
 script = ExtResource("1_eiq57")
@@ -28,9 +30,17 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_p21bk")
 layout_mode = 2
 alignment = 1
 
-[node name="Control" type="Control" parent="TopRow/InfoSection/InfoBox"]
+[node name="PanelContainer" type="PanelContainer" parent="TopRow/InfoSection/InfoBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jdupu")
+
+[node name="ResetButton" type="Button" parent="TopRow/InfoSection/InfoBox/PanelContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Reset"
 
 [node name="ScoreBox" type="HBoxContainer" parent="TopRow/InfoSection/InfoBox"]
 layout_mode = 2
@@ -94,6 +104,7 @@ position = Vector2(240, 320)
 [node name="StopButton3" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
 position = Vector2(400, 320)
 
+[connection signal="pressed" from="TopRow/InfoSection/InfoBox/PanelContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="stopped" from="MiddleRow/Spinners/Spinner" to="." method="_on_spinner_stopped"]
 [connection signal="stopped" from="MiddleRow/Spinners/Spinner2" to="." method="_on_spinner_stopped"]
 [connection signal="stopped" from="MiddleRow/Spinners/Spinner3" to="." method="_on_spinner_stopped"]

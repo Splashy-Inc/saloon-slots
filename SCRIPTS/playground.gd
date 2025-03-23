@@ -58,8 +58,11 @@ func _on_lever_pulled() -> void:
 		spinner_3.start()
 
 func _update_spins_left(spins: int):
-	if spins_left > 0:
+	if spins_left > 0 or spins == STARTING_SPINS:
 		spins_left = clamp(spins, 0, STARTING_SPINS)
 		spins_count.text = str(spins_left)
 		return true
 	return false
+
+func _on_reset_button_pressed() -> void:
+	get_tree().reload_current_scene()
