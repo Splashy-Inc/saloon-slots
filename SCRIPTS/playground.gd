@@ -19,7 +19,7 @@ signal reset_pressed
 
 const SCORE_INCREMENT := 100
 var score := 0
-const STARTING_SPINS = 1
+const STARTING_SPINS = 10
 var spins_left := STARTING_SPINS
 var stopped_spinners : Array[Spinner]
 
