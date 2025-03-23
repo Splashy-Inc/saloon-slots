@@ -18,26 +18,50 @@ offset_bottom = 360.0
 
 [node name="TopRow" type="Node2D" parent="."]
 
-[node name="ScoreBox" type="PanelContainer" parent="TopRow"]
+[node name="InfoSection" type="PanelContainer" parent="TopRow"]
 custom_minimum_size = Vector2(480, 48)
 offset_right = 480.0
 offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_p21bk")
 
-[node name="ScoreRow" type="HBoxContainer" parent="TopRow/ScoreBox"]
+[node name="InfoBox" type="HBoxContainer" parent="TopRow/InfoSection"]
 layout_mode = 2
 alignment = 1
 
-[node name="ScoreTitle" type="Label" parent="TopRow/ScoreBox/ScoreRow"]
+[node name="Control" type="Control" parent="TopRow/InfoSection/InfoBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScoreBox" type="HBoxContainer" parent="TopRow/InfoSection/InfoBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScoreTitle" type="Label" parent="TopRow/InfoSection/InfoBox/ScoreBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Score: "
 horizontal_alignment = 2
 
-[node name="ScoreLabel" type="Label" parent="TopRow/ScoreBox/ScoreRow"]
+[node name="ScoreLabel" type="Label" parent="TopRow/InfoSection/InfoBox/ScoreBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
+
+[node name="SpinsBox" type="HBoxContainer" parent="TopRow/InfoSection/InfoBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SpinsTitle" type="Label" parent="TopRow/InfoSection/InfoBox/SpinsBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Spins: "
+horizontal_alignment = 2
+
+[node name="SpinsCount" type="Label" parent="TopRow/InfoSection/InfoBox/SpinsBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
 
 [node name="MiddleRow" type="Node2D" parent="."]
 
