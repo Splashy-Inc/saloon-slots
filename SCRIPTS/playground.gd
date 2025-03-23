@@ -3,9 +3,11 @@ extends Node
 @onready var spinner_1: Spinner = $MiddleRow/Spinners/Spinner
 @onready var spinner_2: Spinner = $MiddleRow/Spinners/Spinner2
 @onready var spinner_3: Spinner = $MiddleRow/Spinners/Spinner3
-@onready var score: Label = $TopRow/ScoreBox/ScoreRow/Score
+@onready var score_label: Label = $TopRow/ScoreBox/ScoreRow/ScoreLabel
 @onready var lever: Lever = $MiddleRow/Lever/Lever
 
+const SCORE_INCREMENT = 100
+var score = 0
 var stopped_spinners : Array[Spinner]
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +31,9 @@ func _on_spinner_stopped(stopped_spinner: Spinner) -> void:
 	if not stopped_spinner in stopped_spinners:
 		stopped_spinners.append(stopped_spinner)
 	if len(stopped_spinners) == 3:
-		print(_check_spinner_lineup())
+		if _check_spinner_lineup():
+			score += SCORE_INCREMENT
+			score_label.text = str(score)
 		lever.reset()
 
 
@@ -42,6 +46,7 @@ func _check_spinner_lineup():
 			return false
 	return true
 func _on_lever_pulled() -> void:
+	stopped_spinners = []
 	spinner_1.start()
 	spinner_2.start()
 	spinner_3.start()
