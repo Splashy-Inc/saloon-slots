@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ss8rdvj5xugi"]
+[gd_scene load_steps=15 format=3 uid="uid://ss8rdvj5xugi"]
 
 [ext_resource type="Script" path="res://SCRIPTS/playground.gd" id="1_eiq57"]
 [ext_resource type="PackedScene" uid="uid://blqp4w42gjwru" path="res://SCENES/spinner.tscn" id="1_p8cck"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cxq26bgi6tp3y" path="res://SCENES/stop_button.tscn" id="2_wuo5g"]
 [ext_resource type="Material" uid="uid://bh0m8w5bd2nte" path="res://confetti_material.tres" id="3_ff501"]
 [ext_resource type="PackedScene" uid="uid://cl3soqbpi3kfl" path="res://SCENES/lever.tscn" id="3_ivvf6"]
+[ext_resource type="AudioStream" uid="uid://clhqwny34nh7g" path="res://ASSETS/Sounds/lineup_success.ogg" id="7_a7ccu"]
+[ext_resource type="AudioStream" uid="uid://cmf6mdljfsvc6" path="res://ASSETS/Sounds/lineup_fail.ogg" id="8_1adxt"]
+[ext_resource type="AudioStream" uid="uid://cftenbeq82kuk" path="res://ASSETS/Sounds/win_sound.ogg" id="9_c61al"]
+[ext_resource type="AudioStream" uid="uid://bnlcnenbeqvtn" path="res://ASSETS/Sounds/lose_sound.ogg" id="9_mwrrh"]
+[ext_resource type="AudioStream" uid="uid://bnsgswtsusn77" path="res://ASSETS/Sounds/win_voice.ogg" id="10_lo5wm"]
+[ext_resource type="AudioStream" uid="uid://cm18ykhwm5hwn" path="res://ASSETS/Sounds/saloon.ogg" id="12_lcvb6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p21bk"]
 
@@ -115,6 +121,33 @@ position = Vector2(240, 320)
 
 [node name="StopButton3" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
 position = Vector2(400, 320)
+
+[node name="LineupSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_a7ccu")
+volume_db = 5.0
+pitch_scale = 1.5
+
+[node name="LineupFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1adxt")
+volume_db = 5.0
+pitch_scale = 1.5
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_c61al")
+pitch_scale = 1.5
+
+[node name="WinVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lo5wm")
+volume_db = 10.0
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mwrrh")
+volume_db = 10.0
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_lcvb6")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="TopRow/InfoSection/InfoBox/PanelContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="stopped" from="MiddleRow/Spinners/Spinner" to="." method="_on_spinner_stopped"]

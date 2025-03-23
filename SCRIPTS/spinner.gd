@@ -31,6 +31,8 @@ func _process(delta: float) -> void:
 				icons.autoscroll.y = 0
 				icons.position.y = 80 * int(icons.position.y/80)
 				stop_particles.emitting = false
+				$Stopping.stop()
+				$Stopped.play()
 				stopped.emit(self)
 		else:
 			icons.autoscroll.y = clamp(icons.autoscroll.y - 2, 0, MAX_SPEED)
@@ -41,10 +43,13 @@ func stop():
 	stopping = true
 	stop_particles.emitting = true
 	stop_particles.amount_ratio = icons.autoscroll.y/MAX_SPEED
+	$Stopping.play()
+	$Spinning.stop()
 
 func start():
 	stopping = false
 	icons.autoscroll.y = MAX_SPEED
+	$Spinning.play()
 
 func get_icons_position():
 	return icons.position

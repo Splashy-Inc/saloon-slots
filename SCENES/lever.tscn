@@ -1,8 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://cl3soqbpi3kfl"]
+[gd_scene load_steps=28 format=3 uid="uid://cl3soqbpi3kfl"]
 
 [ext_resource type="Texture2D" uid="uid://2fjugatdwq5y" path="res://ASSETS/Lever/LeverIdle.png" id="1_j7le8"]
 [ext_resource type="Script" path="res://SCRIPTS/lever.gd" id="1_qatsd"]
 [ext_resource type="Texture2D" uid="uid://7i8hji0pbi78" path="res://ASSETS/Lever/LeverSpriteSheet.png" id="3_sossu"]
+[ext_resource type="AudioStream" uid="uid://dxtkaabwb56um" path="res://ASSETS/Sounds/lever_pull.ogg" id="4_mjy5x"]
+[ext_resource type="AudioStream" uid="uid://e3f854e8k8xv" path="res://ASSETS/Sounds/lever_hit.ogg" id="5_aiu7s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv5yh"]
 
@@ -149,5 +151,13 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_111tx")
 sprite_frames = SubResource("SpriteFrames_kyxhq")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Pull" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mjy5x")
+volume_db = 10.0
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aiu7s")
+volume_db = 10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

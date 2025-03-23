@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 
 func _on_texture_button_pressed() -> void:
 	$AnimatedSprite2D.play("pressed")
+	$Pressed.play()
 	stop_pressed.emit()
 	$Button.disabled = true
 

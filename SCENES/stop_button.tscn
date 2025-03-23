@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://cxq26bgi6tp3y"]
+[gd_scene load_steps=26 format=3 uid="uid://cxq26bgi6tp3y"]
 
 [ext_resource type="Texture2D" uid="uid://ccxocy30efitl" path="res://ASSETS/Button/ButtonIdleSpriteSheet.png" id="1_chiu8"]
 [ext_resource type="Script" path="res://SCRIPTS/stop_button.gd" id="1_xqshc"]
 [ext_resource type="Texture2D" uid="uid://bdu8i6i6ic3pm" path="res://ASSETS/Button/Button.png" id="3_ytcxn"]
 [ext_resource type="Texture2D" uid="uid://cqrn5hdwbuk70" path="res://ASSETS/Button/ButtonPressedSpriteSheet.png" id="4_0hsvy"]
+[ext_resource type="AudioStream" uid="uid://b7rftd016wqt1" path="res://ASSETS/Sounds/button_press.ogg" id="5_42n07"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wekqk"]
 
@@ -135,5 +136,9 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_c4whr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l60gf")
 autoplay = "default"
+
+[node name="Pressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_42n07")
+volume_db = 10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_texture_button_pressed"]

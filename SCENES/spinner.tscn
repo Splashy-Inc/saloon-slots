@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blqp4w42gjwru"]
+[gd_scene load_steps=11 format=3 uid="uid://blqp4w42gjwru"]
 
 [ext_resource type="Script" path="res://SCRIPTS/spinner.gd" id="1_bifv3"]
 [ext_resource type="PackedScene" uid="uid://couw6agdsbohf" path="res://SCENES/icon.tscn" id="2_dhysi"]
 [ext_resource type="Material" uid="uid://fhnw28jbtywg" path="res://spinner_partciles.tres" id="3_1sync"]
+[ext_resource type="AudioStream" uid="uid://diilk5f5crp3q" path="res://ASSETS/Sounds/spinner_stopping.ogg" id="4_imhhf"]
+[ext_resource type="AudioStream" uid="uid://bq3xn85nc8nh8" path="res://ASSETS/Sounds/spinner_stopped.ogg" id="5_wil7s"]
+[ext_resource type="AudioStream" uid="uid://pctgp8e4gtrn" path="res://ASSETS/Sounds/spinner_spinning.ogg" id="6_djgg1"]
 
 [sub_resource type="Gradient" id="Gradient_gbnso"]
 offsets = PackedFloat32Array(0, 0.519481, 1)
@@ -14,6 +17,16 @@ width = 128
 height = 232
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrgfh"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("4_imhhf")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kfimb"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("6_djgg1")
 
 [node name="Spinner" type="Node2D"]
 script = ExtResource("1_bifv3")
@@ -91,3 +104,17 @@ position = Vector2(0, 116)
 emitting = false
 amount = 200
 process_material = ExtResource("3_1sync")
+
+[node name="Stopping" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wrgfh")
+volume_db = 10.0
+pitch_scale = 0.6
+
+[node name="Stopped" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wil7s")
+volume_db = 5.0
+pitch_scale = 2.0
+
+[node name="Spinning" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_kfimb")
+volume_db = 5.0
