@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://couw6agdsbohf" path="res://SCENES/icon.tscn" id="2_dhysi"]
 
 [sub_resource type="Gradient" id="Gradient_gbnso"]
-offsets = PackedFloat32Array(0, 0.512987, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.519481, 1)
+colors = PackedColorArray(0.419608, 0.282353, 0.0901961, 1, 1, 1, 1, 1, 0.41868, 0.283755, 0.0899879, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uaemb"]
 gradient = SubResource("Gradient_gbnso")

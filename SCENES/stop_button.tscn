@@ -1,9 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxq26bgi6tp3y"]
+[gd_scene load_steps=25 format=3 uid="uid://cxq26bgi6tp3y"]
 
 [ext_resource type="Texture2D" uid="uid://ccxocy30efitl" path="res://ASSETS/Button/ButtonIdleSpriteSheet.png" id="1_chiu8"]
 [ext_resource type="Script" path="res://SCRIPTS/stop_button.gd" id="1_xqshc"]
 [ext_resource type="Texture2D" uid="uid://bdu8i6i6ic3pm" path="res://ASSETS/Button/Button.png" id="3_ytcxn"]
 [ext_resource type="Texture2D" uid="uid://cqrn5hdwbuk70" path="res://ASSETS/Button/ButtonPressedSpriteSheet.png" id="4_0hsvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wekqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1uo4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_it12w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyyuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8gki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rtac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjwc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_df7wg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlk0b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6mfy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4whr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sein"]
 atlas = ExtResource("1_chiu8")
@@ -98,6 +120,17 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wekqk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_j1uo4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_it12w")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eyyuy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f8gki")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5rtac")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sjwc5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_df7wg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mlk0b")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_g6mfy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c4whr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l60gf")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ss8rdvj5xugi"]
+[gd_scene load_steps=8 format=3 uid="uid://ss8rdvj5xugi"]
 
 [ext_resource type="Script" path="res://SCRIPTS/playground.gd" id="1_eiq57"]
 [ext_resource type="PackedScene" uid="uid://blqp4w42gjwru" path="res://SCENES/spinner.tscn" id="1_p8cck"]
+[ext_resource type="Texture2D" uid="uid://kynhem1b786u" path="res://ASSETS/BaclGround.png" id="2_ft8l1"]
 [ext_resource type="PackedScene" uid="uid://cxq26bgi6tp3y" path="res://SCENES/stop_button.tscn" id="2_wuo5g"]
 [ext_resource type="PackedScene" uid="uid://cl3soqbpi3kfl" path="res://SCENES/lever.tscn" id="3_ivvf6"]
 
@@ -17,6 +18,7 @@ script = ExtResource("1_eiq57")
 [node name="BackgroundTexture" type="TextureRect" parent="Background"]
 offset_right = 640.0
 offset_bottom = 360.0
+texture = ExtResource("2_ft8l1")
 
 [node name="TopRow" type="Node2D" parent="."]
 
