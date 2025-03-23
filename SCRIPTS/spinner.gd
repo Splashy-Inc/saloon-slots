@@ -4,9 +4,12 @@ class_name Spinner
 
 signal stopped
 
+@onready var stop_particles: GPUParticles2D = $StopParticles
+
 const MAX_SPEED = 360*2
 var stopping := false
 @onready var icons: Parallax2D = $Background/Icons
+var PARTICLES_MAX_AMOUNT := 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,13 +30,17 @@ func _process(delta: float) -> void:
 			else:
 				icons.autoscroll.y = 0
 				icons.position.y = 80 * int(icons.position.y/80)
+				stop_particles.emitting = false
 				stopped.emit(self)
 		else:
 			icons.autoscroll.y = clamp(icons.autoscroll.y - 2, 0, MAX_SPEED)
 		$Background/Icons.scroll_offset.y = cur_position.y
+		stop_particles.amount_ratio = icons.autoscroll.y/MAX_SPEED
 
 func stop():
 	stopping = true
+	stop_particles.emitting = true
+	stop_particles.amount_ratio = icons.autoscroll.y/MAX_SPEED
 
 func start():
 	stopping = false

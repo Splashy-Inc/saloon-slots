@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kynhem1b786u"
-path="res://.godot/imported/BaclGround.png-72b0397d6f379a5edcf914ac924a3b70.ctex"
+path="res://.godot/imported/BackGround.png-1a2b9dadffc6be7a13a9e82e79a53940.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/BaclGround.png"
-dest_files=["res://.godot/imported/BaclGround.png-72b0397d6f379a5edcf914ac924a3b70.ctex"]
+source_file="res://ASSETS/BackGround.png"
+dest_files=["res://.godot/imported/BackGround.png-1a2b9dadffc6be7a13a9e82e79a53940.ctex"]
 
 [params]
 

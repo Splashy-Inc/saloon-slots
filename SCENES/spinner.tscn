@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://blqp4w42gjwru"]
+[gd_scene load_steps=6 format=3 uid="uid://blqp4w42gjwru"]
 
 [ext_resource type="Script" path="res://SCRIPTS/spinner.gd" id="1_bifv3"]
 [ext_resource type="PackedScene" uid="uid://couw6agdsbohf" path="res://SCENES/icon.tscn" id="2_dhysi"]
@@ -13,6 +13,17 @@ width = 128
 height = 232
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ii0iw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(48, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 200, 0)
+scale_max = 3.0
+color = Color(1, 0.862745, 0, 1)
 
 [node name="Spinner" type="Node2D"]
 script = ExtResource("1_bifv3")
@@ -82,3 +93,9 @@ position = Vector2(0, 560)
 
 [node name="Icon" parent="Background/Icons/IconSlot10" instance=ExtResource("2_dhysi")]
 type = 9
+
+[node name="StopParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 116)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_ii0iw")
