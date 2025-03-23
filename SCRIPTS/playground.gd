@@ -4,6 +4,7 @@ extends Node
 @onready var spinner_2: Spinner = $MiddleRow/Spinners/Spinner2
 @onready var spinner_3: Spinner = $MiddleRow/Spinners/Spinner3
 @onready var score: Label = $TopRow/ScoreBox/ScoreRow/Score
+@onready var lever: Lever = $MiddleRow/Lever/Lever
 
 var stopped_spinners : Array[Spinner]
 
@@ -29,6 +30,8 @@ func _on_spinner_stopped(stopped_spinner: Spinner) -> void:
 		stopped_spinners.append(stopped_spinner)
 	if len(stopped_spinners) == 3:
 		print(_check_spinner_lineup())
+		lever.reset()
+
 
 func _check_spinner_lineup():
 	var prev_position_y = null
@@ -38,7 +41,6 @@ func _check_spinner_lineup():
 		elif prev_position_y != int(spinner.get_icons_position().y):
 			return false
 	return true
-
 func _on_lever_pulled() -> void:
 	spinner_1.start()
 	spinner_2.start()

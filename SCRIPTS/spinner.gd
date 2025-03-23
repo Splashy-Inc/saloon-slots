@@ -36,6 +36,7 @@ func stop():
 	stopping = true
 
 func start():
+	stopping = false
 	icons.autoscroll.y = MAX_SPEED
 
 func get_icons_position():
