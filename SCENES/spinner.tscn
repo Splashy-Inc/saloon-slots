@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://SCRIPTS/spinner.gd" id="1_bifv3"]
 [ext_resource type="PackedScene" uid="uid://couw6agdsbohf" path="res://SCENES/icon.tscn" id="2_dhysi"]
+[ext_resource type="Material" uid="uid://fhnw28jbtywg" path="res://spinner_partciles.tres" id="3_1sync"]
 
 [sub_resource type="Gradient" id="Gradient_gbnso"]
 offsets = PackedFloat32Array(0, 0.519481, 1)
@@ -13,17 +14,6 @@ width = 128
 height = 232
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ii0iw"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(48, 1, 1)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 200, 0)
-scale_max = 3.0
-color = Color(1, 0.862745, 0, 1)
 
 [node name="Spinner" type="Node2D"]
 script = ExtResource("1_bifv3")
@@ -95,7 +85,9 @@ position = Vector2(0, 560)
 type = 9
 
 [node name="StopParticles" type="GPUParticles2D" parent="."]
+z_index = 1
+z_as_relative = false
 position = Vector2(0, 116)
 emitting = false
 amount = 200
-process_material = SubResource("ParticleProcessMaterial_ii0iw")
+process_material = ExtResource("3_1sync")

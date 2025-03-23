@@ -21,7 +21,7 @@ var stopped_spinners : Array[Spinner]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	preload("res://confetti_material.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,6 +43,8 @@ func _on_spinner_stopped(stopped_spinner: Spinner) -> void:
 		if _check_spinner_lineup():
 			score += SCORE_INCREMENT
 			score_label.text = str(score)
+			if score == STARTING_SPINS * SCORE_INCREMENT:
+				$TopRow/InfoSection/InfoBox/ScoreBox/PerfectConfetti.emitting = true
 		if spins_left > 0:
 			lever.reset()
 
