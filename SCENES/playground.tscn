@@ -19,9 +19,9 @@ offset_bottom = 360.0
 [node name="TopRow" type="Node2D" parent="."]
 
 [node name="ScoreBox" type="PanelContainer" parent="TopRow"]
-custom_minimum_size = Vector2(480, 64)
+custom_minimum_size = Vector2(480, 48)
 offset_right = 480.0
-offset_bottom = 64.0
+offset_bottom = 48.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_p21bk")
 
 [node name="ScoreRow" type="HBoxContainer" parent="TopRow/ScoreBox"]
@@ -44,30 +44,31 @@ text = "0"
 [node name="Spinners" type="Node2D" parent="MiddleRow"]
 
 [node name="Spinner" parent="MiddleRow/Spinners" instance=ExtResource("1_p8cck")]
-position = Vector2(80, 180)
+position = Vector2(80, 164)
 
 [node name="Spinner2" parent="MiddleRow/Spinners" instance=ExtResource("1_p8cck")]
-position = Vector2(240, 180)
+position = Vector2(240, 164)
 
 [node name="Spinner3" parent="MiddleRow/Spinners" instance=ExtResource("1_p8cck")]
-position = Vector2(400, 180)
+position = Vector2(400, 164)
 
 [node name="Lever" type="Node2D" parent="MiddleRow"]
 
 [node name="Lever" parent="MiddleRow/Lever" instance=ExtResource("3_ivvf6")]
+position = Vector2(560, 180)
 
 [node name="BottomRow" type="Node2D" parent="."]
 
 [node name="Buttons" type="Node2D" parent="BottomRow"]
 
 [node name="StopButton" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
-position = Vector2(80, 328)
+position = Vector2(80, 320)
 
 [node name="StopButton2" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
-position = Vector2(240, 328)
+position = Vector2(240, 320)
 
 [node name="StopButton3" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
-position = Vector2(400, 328)
+position = Vector2(400, 320)
 
 [connection signal="stopped" from="MiddleRow/Spinners/Spinner" to="." method="_on_spinner_stopped"]
 [connection signal="stopped" from="MiddleRow/Spinners/Spinner2" to="." method="_on_spinner_stopped"]

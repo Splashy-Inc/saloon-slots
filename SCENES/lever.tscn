@@ -118,7 +118,6 @@ animations = [{
 }]
 
 [node name="Lever" type="Node2D"]
-position = Vector2(560, 180)
 script = ExtResource("1_qatsd")
 
 [node name="Button" type="Button" parent="."]
