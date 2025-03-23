@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name StopButton
+
 signal stop_pressed
 
 # Called when the node enters the scene tree for the first time.
@@ -15,3 +17,8 @@ func _process(delta: float) -> void:
 func _on_texture_button_pressed() -> void:
 	$AnimatedSprite2D.play("pressed")
 	stop_pressed.emit()
+	$Button.disabled = true
+
+func reset():
+	$AnimatedSprite2D.play("default")
+	$Button.disabled = false

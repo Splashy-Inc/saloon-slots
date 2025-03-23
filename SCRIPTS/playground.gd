@@ -3,8 +3,14 @@ extends Node
 @onready var spinner_1: Spinner = $MiddleRow/Spinners/Spinner
 @onready var spinner_2: Spinner = $MiddleRow/Spinners/Spinner2
 @onready var spinner_3: Spinner = $MiddleRow/Spinners/Spinner3
+
+@onready var stop_button: StopButton = $BottomRow/Buttons/StopButton
+@onready var stop_button_2: StopButton = $BottomRow/Buttons/StopButton2
+@onready var stop_button_3: StopButton = $BottomRow/Buttons/StopButton3
+
 @onready var score_label: Label = $TopRow/InfoSection/InfoBox/ScoreBox/ScoreLabel
 @onready var spins_count: Label = $TopRow/InfoSection/InfoBox/SpinsBox/SpinsCount
+
 @onready var lever: Lever = $MiddleRow/Lever/Lever
 
 const SCORE_INCREMENT := 100
@@ -40,7 +46,6 @@ func _on_spinner_stopped(stopped_spinner: Spinner) -> void:
 		if spins_left > 0:
 			lever.reset()
 
-
 func _check_spinner_lineup():
 	var prev_position_y = null
 	for spinner in stopped_spinners:
@@ -54,8 +59,11 @@ func _on_lever_pulled() -> void:
 	if _update_spins_left(spins_left - 1):
 		stopped_spinners = []
 		spinner_1.start()
+		stop_button.reset()
 		spinner_2.start()
+		stop_button_2.reset()
 		spinner_3.start()
+		stop_button_3.reset()
 
 func _update_spins_left(spins: int):
 	if spins_left > 0 or spins == STARTING_SPINS:
