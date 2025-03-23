@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ss8rdvj5xugi"]
+[gd_scene load_steps=5 format=3 uid="uid://ss8rdvj5xugi"]
 
 [ext_resource type="Script" path="res://SCRIPTS/playground.gd" id="1_eiq57"]
 [ext_resource type="PackedScene" uid="uid://blqp4w42gjwru" path="res://SCENES/spinner.tscn" id="1_p8cck"]
 [ext_resource type="PackedScene" uid="uid://cxq26bgi6tp3y" path="res://SCENES/stop_button.tscn" id="2_wuo5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p21bk"]
 
 [node name="Playground" type="Node"]
 script = ExtResource("1_eiq57")
@@ -15,20 +17,39 @@ offset_bottom = 360.0
 
 [node name="TopRow" type="Node2D" parent="."]
 
-[node name="ScoreBox" type="Node2D" parent="TopRow"]
+[node name="ScoreBox" type="PanelContainer" parent="TopRow"]
+custom_minimum_size = Vector2(480, 64)
+offset_right = 480.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p21bk")
+
+[node name="ScoreRow" type="HBoxContainer" parent="TopRow/ScoreBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="TopRow/ScoreBox/ScoreRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Score: "
+horizontal_alignment = 2
+
+[node name="Score" type="Label" parent="TopRow/ScoreBox/ScoreRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
 
 [node name="MiddleRow" type="Node2D" parent="."]
 
 [node name="Spinners" type="Node2D" parent="MiddleRow"]
 
 [node name="Spinner" parent="MiddleRow/Spinners" instance=ExtResource("1_p8cck")]
-position = Vector2(96, 180)
+position = Vector2(80, 180)
 
 [node name="Spinner2" parent="MiddleRow/Spinners" instance=ExtResource("1_p8cck")]
-position = Vector2(256, 180)
+position = Vector2(240, 180)
 
 [node name="Spinner3" parent="MiddleRow/Spinners" instance=ExtResource("1_p8cck")]
-position = Vector2(416, 180)
+position = Vector2(400, 180)
 
 [node name="Lever" type="Node2D" parent="MiddleRow"]
 
@@ -37,14 +58,17 @@ position = Vector2(416, 180)
 [node name="Buttons" type="Node2D" parent="BottomRow"]
 
 [node name="StopButton" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
-position = Vector2(96, 328)
+position = Vector2(80, 328)
 
 [node name="StopButton2" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
-position = Vector2(256, 328)
+position = Vector2(240, 328)
 
 [node name="StopButton3" parent="BottomRow/Buttons" instance=ExtResource("2_wuo5g")]
-position = Vector2(416, 328)
+position = Vector2(400, 328)
 
+[connection signal="stopped" from="MiddleRow/Spinners/Spinner" to="." method="_on_spinner_stopped"]
+[connection signal="stopped" from="MiddleRow/Spinners/Spinner2" to="." method="_on_spinner_stopped"]
+[connection signal="stopped" from="MiddleRow/Spinners/Spinner3" to="." method="_on_spinner_stopped"]
 [connection signal="stop_pressed" from="BottomRow/Buttons/StopButton" to="." method="_on_stop_one_pressed"]
 [connection signal="stop_pressed" from="BottomRow/Buttons/StopButton2" to="." method="_on_stop_two_pressed"]
 [connection signal="stop_pressed" from="BottomRow/Buttons/StopButton3" to="." method="_on_stop_three_pressed"]

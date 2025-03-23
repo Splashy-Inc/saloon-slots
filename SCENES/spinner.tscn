@@ -10,7 +10,7 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uaemb"]
 gradient = SubResource("Gradient_gbnso")
 width = 128
-height = 240
+height = 232
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
