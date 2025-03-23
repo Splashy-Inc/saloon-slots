@@ -23,7 +23,6 @@ texture = SubResource("GradientTexture2D_uaemb")
 
 [node name="Icons" type="Parallax2D" parent="Background"]
 repeat_size = Vector2(0, 800)
-autoscroll = Vector2(0, 100)
 repeat_times = 2
 
 [node name="IconSlot1" type="Node2D" parent="Background/Icons"]

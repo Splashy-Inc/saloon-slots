@@ -10,7 +10,7 @@ var stopping := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	icons.autoscroll.y = MAX_SPEED
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,6 +34,9 @@ func _process(delta: float) -> void:
 
 func stop():
 	stopping = true
+
+func start():
+	icons.autoscroll.y = MAX_SPEED
 
 func get_icons_position():
 	return icons.position

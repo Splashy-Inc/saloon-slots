@@ -38,3 +38,8 @@ func _check_spinner_lineup():
 		elif prev_position_y != int(spinner.get_icons_position().y):
 			return false
 	return true
+
+func _on_lever_pulled() -> void:
+	spinner_1.start()
+	spinner_2.start()
+	spinner_3.start()
