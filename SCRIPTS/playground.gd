@@ -1,5 +1,9 @@
 extends Node
 
+class_name Level
+
+signal reset_pressed
+
 @onready var spinner_1: Spinner = $MiddleRow/Spinners/Spinner
 @onready var spinner_2: Spinner = $MiddleRow/Spinners/Spinner2
 @onready var spinner_3: Spinner = $MiddleRow/Spinners/Spinner3
@@ -86,4 +90,4 @@ func _update_spins_left(spins: int):
 	return false
 
 func _on_reset_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	reset_pressed.emit()
