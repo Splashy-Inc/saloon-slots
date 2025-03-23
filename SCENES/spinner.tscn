@@ -10,7 +10,7 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uaemb"]
 gradient = SubResource("Gradient_gbnso")
 width = 128
-height = 240
+height = 232
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
@@ -23,7 +23,6 @@ texture = SubResource("GradientTexture2D_uaemb")
 
 [node name="Icons" type="Parallax2D" parent="Background"]
 repeat_size = Vector2(0, 800)
-autoscroll = Vector2(0, 100)
 repeat_times = 2
 
 [node name="IconSlot1" type="Node2D" parent="Background/Icons"]

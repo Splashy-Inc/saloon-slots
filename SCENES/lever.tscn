@@ -1,0 +1,154 @@
+[gd_scene load_steps=26 format=3 uid="uid://cl3soqbpi3kfl"]
+
+[ext_resource type="Texture2D" uid="uid://2fjugatdwq5y" path="res://ASSETS/Lever/LeverIdle.png" id="1_j7le8"]
+[ext_resource type="Script" path="res://SCRIPTS/lever.gd" id="1_qatsd"]
+[ext_resource type="Texture2D" uid="uid://7i8hji0pbi78" path="res://ASSETS/Lever/LeverSpriteSheet.png" id="3_sossu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv5yh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_as5mu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdp3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcmdl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umm6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rj7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7cdb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1obo0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_snhj1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbvvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_111tx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lihi"]
+atlas = ExtResource("3_sossu")
+region = Rect2(640, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unla2"]
+atlas = ExtResource("3_sossu")
+region = Rect2(480, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_accy1"]
+atlas = ExtResource("3_sossu")
+region = Rect2(320, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gedby"]
+atlas = ExtResource("3_sossu")
+region = Rect2(160, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyrnl"]
+atlas = ExtResource("3_sossu")
+region = Rect2(0, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0fjr"]
+atlas = ExtResource("3_sossu")
+region = Rect2(0, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eavcm"]
+atlas = ExtResource("3_sossu")
+region = Rect2(160, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6seou"]
+atlas = ExtResource("3_sossu")
+region = Rect2(320, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jftup"]
+atlas = ExtResource("3_sossu")
+region = Rect2(480, 0, 160, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iojb"]
+atlas = ExtResource("3_sossu")
+region = Rect2(640, 0, 160, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyxhq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j7le8")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lihi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unla2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_accy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gedby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyrnl")
+}],
+"loop": false,
+"name": &"pull_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0fjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eavcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6seou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jftup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iojb")
+}],
+"loop": false,
+"name": &"reset",
+"speed": 8.0
+}]
+
+[node name="Lever" type="Node2D"]
+position = Vector2(560, 180)
+script = ExtResource("1_qatsd")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 360)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -4.0
+offset_right = 80.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pv5yh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_as5mu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qdp3h")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xcmdl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_umm6f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_0rj7k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v7cdb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1obo0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_snhj1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hbvvg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_111tx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kyxhq")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
